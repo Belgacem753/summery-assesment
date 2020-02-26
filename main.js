@@ -60,6 +60,10 @@ function reduce(array, f, acc) {
 
 function wordLengths(str) {
     // TODO: your code here 
+    var arrStrings = str.split(' ');
+    return map(arrStrings, function(element, index){
+      return element.length;
+    })
 }
 
 //=============================================================================
@@ -73,6 +77,11 @@ function wordLengths(str) {
 
 function countOccurrences(string, character) {
     // your code is here
+    var arrStrings = string.split('');
+    var char = filter(arrStrings, function(element, index){
+      return element === character;
+    });
+    return char.length;
 }
 
 //=============================================================================
@@ -85,6 +94,10 @@ function countOccurrences(string, character) {
 
 function wordsLongerThanThree(str) {
     // TODO: your code here 
+    var arrStrings = str.split(' ');
+    return filter(arrStrings, function(element, index){
+      return element.length > 3;
+    })
 }
 
 //=============================================================================
@@ -100,6 +113,10 @@ function wordsLongerThanThree(str) {
 
 function repeatString(str, count) { 
  // TODO: your code here 
+ if (count === 0){
+   return '';
+ }
+ return str + repeatString(str, count - 1);
 } 
  
 
@@ -130,6 +147,19 @@ function repeatString(str, count) {
 
 // Write your code here .....
 
+function makePizza (crust, size, numberOfSlice) {
+
+  return {
+    crust : crust,
+    size : size,
+    numberOfSlice : numberOfSlice,
+
+    addIngredients : function (ingredient){
+      ingredient[ingredient] = ingredient;
+    }
+    
+}
+
 //=============================================================================
 /*                                  Q6                                      */
 //=============================================================================
@@ -156,6 +186,28 @@ d- Decrement the number of "unread" books
 
 // Write your code here .....
 
+function ReadingList (read, unRead, toRead, currentRead, readBooks){
+  var reader={};
+  reader.read = read;
+  reader.unRead = unRead;
+  reader.toRead = toRead;
+  reader.currentRead = currentRead;
+  reader.readBooks = readBooks;
+  read.addBook =addBook;
+  reader.finishCurrentBook =finishCurrentBook
+}
+
+var addBook = function (name) {
+  this.toRead.push(name);
+  this.unRead += 1;
+}
+
+var finishCurrentBook = function (name){
+  this.readBooks.push(name);
+  this.read += 1;
+  this.toRead.shift(name);
+  this.unRead -= 1;
+} 
 //=============================================================================
 /*                                  Q7                                       */
 //=============================================================================
@@ -175,6 +227,10 @@ d- Decrement the number of "unread" books
 //  safe('money','small') => "watch gold-bar money"
 
 // Write your code here .....
+
+function makeSafe (value){
+  
+}
 
 //=============================================================================
 /*                                  Q8                                       */
